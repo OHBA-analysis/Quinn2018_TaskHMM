@@ -181,27 +181,39 @@ options.BIGdelay = 5;
 options.BIGforgetrate = 0.7;
 options.BIGbase_weights = 0.9;
 
-for kk = 2:2:12
+% The following loop performs the main HMM inference. We start by
+% estimating a 6 state HMM as used in the manuscript.
+states_to_infer = [6];
 
-% The HMM inference is repeated a number of times and the results based on the iteration with the lowest free energy. Note that this can be extremely time-consuming for large datasets. For a quick exploration of results, nrepeats can be set to a smaller value or even 1
+% Optionally, we can explore a wider range of values for K by looping through
+% several values. This can be done by uncommenting the line below.
+% Warning: This is likely to be extremely time-consuming to infer!
+
+%states_to_infer = 2:2:12; % uncomment this line to explore different numbers of states
+
+% The HMM inference is repeated a number of times and the results based on
+% the iteration with the lowest free energy. Note that this can be
+% extremely time-consuming for large datasets. For a quick exploration of
+% results, nrepeats can be set to a smaller value or even 1. The full inference
+% is run over 10 repeats.
 nrepeats = 1;
-best_freeenergy = nan;
-options.K = kk;
 
-for irep = 1:nrepeats
-    % Run the HMM, note we only store a subset of the outputs
-    % more details can be found here: https://github.com/OHBA-analysis/HMM-MAR/wiki/User-Guide#estimation
-    [hmm_iter, Gamma_iter, ~, vpath_iter, ~, ~, ~, ~, fehist] = hmmmar (data',T',options);
+for kk = states_to_infer
+    best_freeenergy = nan;
+    options.K = kk;
 
-    if isnan(best_freeenergy) || fehist(end) < best_freeenergy
-        hmm = hmm_iter;
-        Gamma = Gamma_iter;
-        vpath = vpath_iter;
+    for irep = 1:nrepeats
+        % Run the HMM, note we only store a subset of the outputs
+        % more details can be found here: https://github.com/OHBA-analysis/HMM-MAR/wiki/User-Guide#estimation
+        [hmm_iter, Gamma_iter, ~, vpath_iter, ~, ~, ~, ~, fehist] = hmmmar (data,T',options);
+
+        if isnan(best_freeenergy) || fehist(end) < best_freeenergy
+            hmm = hmm_iter;
+            Gamma = Gamma_iter;
+            vpath = vpath_iter;
+        end
     end
-end
-
-% Save the HMM outputs
-hmm_outfile = fullfile( config.analysisdir, 'envelope_hmm', sprintf('envelope_HMM_K%d',options.K));
-save( hmm_outfile ,'hmm','Gamma','vpath','T')
-
+    % Save the HMM outputs
+    hmm_outfile = fullfile( config.analysisdir, 'envelope_hmm', sprintf('envelope_HMM_K%d',options.K));
+    save( hmm_outfile ,'hmm','Gamma','vpath','T')
 end
