@@ -15,6 +15,10 @@ OSL2 and HMM-MAR are provided as part of this download. SPM12 should be installe
 
 ### Getting Started
 
+The download containing core scripts and associated toolboxes can be found on our OSF page here: https://osf.io/ugjbr/
+
+Please download the HMM\_Task\_Download.zip file. It is recommended to make sure the scripts subdirectory in the download folder contains the latest versions of the scripts from this repository.
+
 Note: All folder paths referred to here are relative to the location of this download, ie all paths assume that your current directory is the top-level of this download.
 
 Once the download is complete take a look into the toolboxes folder of this download. You will find a copy of HMM-MAR (github repo: https://github.com/OHBA-analysis/HMM-MAR) and OSL (docs: https://ohba-analysis.github.io/osl-docs/). These are the core MatLab toolboxes that will run the analyses.
