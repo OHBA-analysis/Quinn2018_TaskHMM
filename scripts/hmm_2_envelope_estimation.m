@@ -205,7 +205,7 @@ for kk = states_to_infer
     for irep = 1:nrepeats
         % Run the HMM, note we only store a subset of the outputs
         % more details can be found here: https://github.com/OHBA-analysis/HMM-MAR/wiki/User-Guide#estimation
-        [hmm_iter, Gamma_iter, ~, vpath_iter, ~, ~, ~, ~, fehist] = hmmmar (data,T',options);
+        [hmm_iter, Gamma_iter, ~, vpath_iter, ~, ~, ~, ~, fehist] = hmmmar (data',T',options);
 
         if isnan(best_freeenergy) || fehist(end) < best_freeenergy
             hmm = hmm_iter;

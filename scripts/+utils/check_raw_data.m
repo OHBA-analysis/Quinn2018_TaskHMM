@@ -1,6 +1,6 @@
 function missing_files = check_raw_data()
 
-    config = wh.get_studydetails();
+    config = utils.get_studydetails();
 
     missing_files = {};
     for subj = 1:19

@@ -279,7 +279,7 @@ print([savebase '_FOglm_famous'],'-depsc')
 %% State descriptions
 %
 % The state descriptions for the embedded HMM are taken from the state-wise
-% multitaper estimation (in contrast to the envelope, where we made direct use of
+% multitaper estimation (in contrast to the envelope, utils.re we made direct use of
 % the observation model).
 %
 % To aid visualisation, we compute two Non-Negative Matrix Factorisations so we
@@ -350,7 +350,7 @@ S.psds = psd(:,:,1:29,:,:);
 S.maxP=4;
 S.maxPcoh=4;
 S.do_plots = true;
-nnmf_res = nnmf_res = wh.run_nnmf( S, 20 );
+nnmf_res = nnmf_res = utils.run_nnmf( S, 20 );
 
 nnmf_outfile = fullfile( config.analysisdir, 'embedded_hmm', 'embedded_HMM_K6_nnmf');
 save(nnmf_outfile,'nnmf_res')

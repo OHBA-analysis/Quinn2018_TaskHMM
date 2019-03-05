@@ -1,5 +1,5 @@
 function [nnmf_res,ss] = run_nnmf( S, niterations, summary_plot )
-% function [nnmf_res,ss] = wh.run_nnmf( S, niters, summary_plot )
+% function [nnmf_res,ss] = run_nnmf( S, niters, summary_plot )
 %
 %
 

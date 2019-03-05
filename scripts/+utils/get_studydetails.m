@@ -18,22 +18,22 @@ function [config] = get_studydetails()
 
     % Are the paths specified?
     if isempty(config.datadir)
-        warning('Please specify the location of the datadir inside utils/+wh/get_studydetails.');
+        warning('Please specify the location of the datadir inside utils/+utils/get_studydetails.');
     end
     if isempty(config.scriptdir)
-        warning('Please specify the location of the scriptdir inside utils/+wh/get_studydetails.');
+        warning('Please specify the location of the scriptdir inside utils/+utils/get_studydetails.');
     end
     if isempty(config.analysisdir)
-        warning('Please specify the location of the analysisdir inside utils/+wh/get_studydetails.');
+        warning('Please specify the location of the analysisdir inside utils/+utils/get_studydetails.');
     end
 
     % Do all the folders exist?
     if exist( config.datadir, 'dir' ) == 0
-        error('datadir path in utils/+wh/get_studydetails.m not found: %s', config.datadir);
+        error('datadir path in utils/+utils/get_studydetails.m not found: %s', config.datadir);
     end
     if exist( config.scriptdir, 'dir' ) == 0
-        error('studydir path in utils/+wh/get_studydetails.m not found: %s', config.scriptdir);
+        error('studydir path in utils/+utils/get_studydetails.m not found: %s', config.scriptdir);
     end
     if exist( config.analysisdir, 'dir' ) == 0
-        error('analysisdir path in utils/+wh/get_studydetails.m not found: %s', config.analysisdir);
+        error('analysisdir path in utils/+utils/get_studydetails.m not found: %s', config.analysisdir);
     end
