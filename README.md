@@ -1,5 +1,11 @@
 # HMM Analysis on Wakeman & Henson Dataset
 
+The repository contains the scripts to run two different types of Hidden Markov Model analysis on a freely available MEG dataset. The analyses are described in full in our accompanying paper
+
+Quinn, A. J., Vidaurre, D., Abeysuriya, R., Becker, R., Nobre, A. C., & Woolrich, M. W. (2018). Task-Evoked Dynamic Network Analysis Through Hidden Markov Modeling. Frontiers in Neuroscience, 12. https://doi.org/10.3389/fnins.2018.00603
+
+This was published as part of a Frontiers in Neuroscience special issue - "From raw MEG/EEG to publication: how to perform MEG/EEG group analysis with free academic software." (https://www.frontiersin.org/research-topics/5158/from-raw-megeeg-to-publication-how-to-perform-megeeg-group-analysis-with-free-academic-software)
+
 ### Prerequisites
 
 To run these analyses you will require:
