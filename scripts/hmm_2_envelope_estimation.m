@@ -43,7 +43,7 @@ for ind = 1:s.n
 
     %-------------------------------
 	% get power envelope
-    dat = osl_envelope( D, 'filter', [2 40], 'orthogonalize',true);
+    dat = osl_envelope( D, 'filter', [2 40], 'orthogonalise',true);
 
     %-------------------------------
     % Smooth and normalise
